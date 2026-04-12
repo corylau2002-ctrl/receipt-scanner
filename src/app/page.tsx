@@ -79,10 +79,13 @@ export default function Home() {
   };
 
   return (
+    <>
     <main className="max-w-3xl mx-auto px-4 py-8 flex-1">
       {/* Header */}
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-800">Receipt Scanner</h1>
+        <h1 className="text-3xl font-bold text-gray-800">
+          <span className="text-blue-600">CoV</span> Receipt Scanner
+        </h1>
         <p className="text-gray-500 mt-2">
           Upload receipt images to extract data and export to Excel
         </p>
@@ -139,5 +142,9 @@ export default function Home() {
         </div>
       )}
     </main>
+    <footer className="text-center py-4 text-sm text-gray-400">
+      Built by <span className="font-semibold text-blue-500">CoV</span>
+    </footer>
+    </>
   );
 }
