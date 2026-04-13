@@ -73,6 +73,7 @@ export default function UploadZone({ onScan, isLoading }: UploadZoneProps) {
             />
             <p className="text-sm text-gray-500">Click or drag to upload another receipt</p>
           </div>
+
         ) : (
           <div className="flex flex-col items-center gap-3">
             <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,6 +87,21 @@ export default function UploadZone({ onScan, isLoading }: UploadZoneProps) {
           </div>
         )}
       </div>
+
+      {preview && (
+        <a
+          href={preview}
+          download={`receipt_${new Date().toISOString().slice(0, 19).replace(/[T:]/g, "-")}.jpg`}
+          onClick={(e) => e.stopPropagation()}
+          className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm hover:bg-blue-100 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Save photo to album
+        </a>
+      )}
 
       <input
         ref={fileInputRef}
