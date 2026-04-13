@@ -9,9 +9,9 @@ export async function analyzeReceiptWithGemini(
   }
 
   // Remove data URL prefix and extract mime type
-  const mimeMatch = base64Image.match(/^data:(image\/\w+);base64,/);
+  const mimeMatch = base64Image.match(/^data:(image\/[^;]+);base64,/);
   const mimeType = mimeMatch ? mimeMatch[1] : "image/jpeg";
-  const imageContent = base64Image.replace(/^data:image\/\w+;base64,/, "");
+  const imageContent = base64Image.replace(/^data:[^;]+;base64,/, "");
 
   const prompt = `Analyze this receipt image and extract the following information in JSON format.
 Return ONLY valid JSON, no markdown code blocks, no extra text.

@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       success: true,
       receipt: {
         ...receiptData,
-        id: crypto.randomUUID(),
+        id: Math.random().toString(36).slice(2) + Date.now().toString(36),
         uploadDate: new Date().toISOString().split("T")[0],
       },
     });
